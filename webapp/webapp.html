@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bouquet Generator</title>
+  <link rel="stylesheet" href="webapp.css" />
+</head>
+<body>
+  <main>
+
+  <h1>🌸 Bouquet Generator</h1>
+  <p>Click the button to generate flowers to make a bouquet!</p>
+
+  <button onclick="generateBouquet()">Generate Bouquet</button>
+
+  <div class="flower-box" id="bouquetBox">
+    <div class="flower"><span class="label">Filler Flower:</span> —</div>
+    <div class="flower"><span class="label">Form Flower:</span> —</div>
+    <div class="flower"><span class="label">Green:</span> —</div>
+  </div>
+
+  <script>
+    const fillerFlowers = ["Baby's Breath", "Waxflower", "Statice", "Aster", "Queen Anne's Lace"];
+    const formFlowers = ["Rose", "Peony", "Tulip", "Lily", "Sunflower", "Dahlia"];
+    const greens = ["Eucalyptus", "Ruscus", "Leatherleaf Fern", "Salal", "Dusty Miller"];
+
+    function getRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateBouquet() {
+      const filler = getRandom(fillerFlowers);
+      const form = getRandom(formFlowers);
+      const green = getRandom(greens);
+
+      const box = document.getElementById('bouquetBox');
+      box.innerHTML = `
+        <div class="flower"><span class="label">Filler Flower:</span> ${filler}</div>
+        <div class="flower"><span class="label">Form Flower:</span> ${form}</div>
+        <div class="flower"><span class="label">Green:</span> ${green}</div>
+      `;
+    }
+  </script>
+  </main>
+
+<footer class="footer-div">
+  <a href="../index/index.html">Back to My Professional Page</a>
+</footer>
+
+</body>
+</html>
